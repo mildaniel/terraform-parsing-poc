@@ -9,6 +9,13 @@ This repository demonstrates a small example of how to use hcl2json to parse a T
 
 It will print the resolved Lambda Functions to the console.
 
+Sample output demonstrating locals resolution for a Lambda Function
+
+```
+{'function1': [{'depends_on': ['${null_resource.sam_metadata_aws_lambda_function1}'], 'function_name': '${var.namespace}-function1-${random_uuid.s3_bucket.result}', 'handler': 'app.lambda_handler', 'layers': ['aws_lambda_layer_version.layer1.arn'], 'role': '${aws_iam_role.iam_for_lambda.arn}', 'runtime': 'python3.8', 's3_bucket': '${aws_s3_bucket.lambda_code_bucket.bucket}', 's3_key': '${aws_s3_object.lambda_function_code.key}', 'timeout': 300}]}
+```
+
+
 ### File breakdown
 
 #### sample.json
